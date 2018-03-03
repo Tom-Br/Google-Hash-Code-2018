@@ -1,7 +1,5 @@
 package ghs.bl;
 
-
-
 public class Vehicle {
 	
 	private static int idCounter = 0;
