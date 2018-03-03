@@ -14,19 +14,30 @@ public class InputReader {
 		this.fileName = fileName;
 	}
 	
-	public ArrayList<String> ReadFile() {
+	public ArrayList<int[]> ReadFile() {
 		FileReader fr;
 		BufferedReader br;
 		
-		ArrayList<String> file = new ArrayList<>();
 		String fileLine = null;
+		String[] fileArray = null;
+		
+		ArrayList<int[]> file = new ArrayList<>();
+		int[] outputArray = new int[6];
+		
+		
+		
 		
 		try {
 			fr = new FileReader(fileName);
 			br = new BufferedReader(fr);
 			
 			while ((fileLine = br.readLine()) != null) {
-				file.add(fileLine);
+
+				fileArray = fileLine.split(" ");
+				for(int i = 0; i < fileArray.length; i++) {
+					outputArray[i] = Integer.parseInt(fileArray[i]);
+				}
+				file.add(outputArray);
 			};
 			
 			
@@ -35,6 +46,7 @@ public class InputReader {
 		} catch (IOException e) {
 			System.out.println("I/O Exception");
 		}
+		
 		return file;
 	}
 	

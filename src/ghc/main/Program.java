@@ -24,10 +24,20 @@ public class Program {
 	}
 	
 	private static void initialize(){
-		ArrayList<String> file;
+		ArrayList<int[]> file;
 		InputReader ir = new InputReader("input_files/a_example.in");
 		
 		file = ir.ReadFile();
 		
+		for (int i = 0; i < file.size(); i++) {
+			int[] fileLine = file.get(i);
+			
+//			if(i == 0) {
+//				
+//			}else {
+//				
+//			};
+			
+		}
 	};
 }
