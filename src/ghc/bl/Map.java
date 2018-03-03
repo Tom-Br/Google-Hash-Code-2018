@@ -1,4 +1,4 @@
-package ghs.bl;
+package ghc.bl;
 
 public class Map {
 	

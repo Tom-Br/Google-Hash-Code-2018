@@ -1,4 +1,4 @@
-package ghs.main;
+package ghc.main;
 
 public class Program {
 

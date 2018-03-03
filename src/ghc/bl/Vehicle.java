@@ -1,4 +1,4 @@
-package ghs.bl;
+package ghc.bl;
 
 public class Vehicle {
 	
@@ -23,6 +23,12 @@ public class Vehicle {
 	public int getId() {
 		return id;
 	}
+
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", currentPos=" + currentPos + "]";
+	}
+	
 	
 	
 }

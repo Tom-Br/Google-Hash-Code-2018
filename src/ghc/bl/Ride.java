@@ -1,4 +1,4 @@
-package ghs.bl;
+package ghc.bl;
 
 public class Ride {
 	
@@ -54,8 +54,14 @@ public class Ride {
 
 	public void setEndPosition(Position endPosition) {
 		this.endPosition = endPosition;
+	}
+
+	@Override
+	public String toString() {
+		return "Ride [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", startPosition="
+				+ startPosition + ", endPosition=" + endPosition + "]";
 	};
 	
-	
+		
 	
 }

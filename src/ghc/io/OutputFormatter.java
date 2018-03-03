@@ -1,4 +1,4 @@
-package ghs.io;
+package ghc.io;
 
 public class OutputFormatter {
 
