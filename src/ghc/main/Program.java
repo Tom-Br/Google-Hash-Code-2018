@@ -17,8 +17,8 @@ public class Program {
 		// Read Input / Initialise Simulation Variables
 		initialise();
 		
-		// Set Simulation Settings
 		// Run Simulation
+		
 		// Format Output
 		
 	}

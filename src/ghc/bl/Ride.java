@@ -18,6 +18,11 @@ public class Ride {
 		this.startTime = startTime;
 		this.endTime   = endTime;
 	}
+	
+	public int calculateDuration() 
+	{
+		return (Math.abs(startPosition.getRow() - endPosition.getRow()) + Math.abs(startPosition.getCol() - endPosition.getCol()));
+	}
 
 	public int getId() {
 		return id;

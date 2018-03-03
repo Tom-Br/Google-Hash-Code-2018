@@ -6,10 +6,12 @@ public class Vehicle {
 	
 	private int id;
 	private Position currentPos;
+	private boolean available;
 	
 	public Vehicle() {
 		this.id = ++idCounter;
 		this.currentPos = new Position(0, 0);
+		this.available = true;
 	}
 
 	public Position getCurrentPos() {
@@ -22,6 +24,14 @@ public class Vehicle {
 
 	public int getId() {
 		return id;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 	@Override
