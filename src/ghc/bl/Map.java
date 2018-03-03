@@ -16,6 +16,13 @@ public class Map {
 
 	public int getTotalCols() {
 		return totalCols;
+	}
+
+	@Override
+	public String toString() {
+		return "Map [totalRows=" + totalRows + ", totalCols=" + totalCols + "]";
 	};	
+	
+	
 	
 }

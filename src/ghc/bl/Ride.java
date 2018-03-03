@@ -10,14 +10,13 @@ public class Ride {
 	private Position startPosition;
 	private Position endPosition;
 	
-	public Ride(int startTime, int endTime, Position startPosition, Position endPosition) {
+	public Ride(Position startPosition, Position endPosition, int startTime, int endTime ) {
 		
 		this.id = ++idCounter;
-		this.startTime = startTime;
-		this.endTime   = endTime;
 		this.startPosition = startPosition;
 		this.endPosition   = endPosition;
-
+		this.startTime = startTime;
+		this.endTime   = endTime;
 	}
 
 	public int getId() {

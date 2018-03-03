@@ -39,7 +39,7 @@ public class SimulationSettings {
 
 	@Override
 	public String toString() {
-		return "SimulationSettings [map=" + map + ", maxVehicles=" + maxVehicles + ", maxRides=" + maxRides
+		return "SimulationSettings [map=" + map.toString() + ", maxVehicles=" + maxVehicles + ", maxRides=" + maxRides
 				+ ", onTimeBonus=" + onTimeBonus + ", maxSteps=" + maxSteps + "]";
 	}
 	

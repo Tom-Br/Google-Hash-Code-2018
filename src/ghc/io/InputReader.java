@@ -22,17 +22,14 @@ public class InputReader {
 		String[] fileArray = null;
 		
 		ArrayList<int[]> file = new ArrayList<>();
-		int[] outputArray = new int[6];
-		
-		
-		
+		int[] outputArray;
 		
 		try {
 			fr = new FileReader(fileName);
 			br = new BufferedReader(fr);
 			
 			while ((fileLine = br.readLine()) != null) {
-
+				outputArray = new int[6];
 				fileArray = fileLine.split(" ");
 				for(int i = 0; i < fileArray.length; i++) {
 					outputArray[i] = Integer.parseInt(fileArray[i]);
