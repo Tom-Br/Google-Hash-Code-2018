@@ -1,6 +1,6 @@
 package ghc.bl;
 
-public class Position {
+public class Position implements Comparable<Position> {
 	
 	private int row;
 	private int col;
@@ -25,12 +25,19 @@ public class Position {
 	public void setCol(int col) {
 		this.col = col;
 	}
-
+	
+	@Override
+	public int compareTo(Position o) {
+		
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
 		return "Position [row=" + row + ", col=" + col + "]";
 	}
-	
+
+
 	
 	
 }

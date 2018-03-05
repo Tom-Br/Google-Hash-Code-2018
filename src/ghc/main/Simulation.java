@@ -1,7 +1,6 @@
 package ghc.main;
 
 import java.util.ArrayList;
-
 import ghc.bl.Map;
 import ghc.bl.Position;
 import ghc.bl.Ride;
@@ -50,20 +49,6 @@ public class Simulation {
 		// Steps for Simulation
 		for(int simDuration = 0; simDuration < settings.getMaxSteps(); simDuration++ ) {
 			
-			// Assign Available vehicles to Rides
-			for (Ride ride : new ArrayList<Ride>(availableRides)) {
-				for (Vehicle vehicle : new ArrayList<Vehicle>(availableVehicles)) {
-					ride.assignVehicle(vehicle, simDuration);
-					occupiedVehicles.add(vehicle);
-					availableVehicles.remove(vehicle);
-					break;
-				}
-				if (ride.getVehicle() != null) {
-					inProgressRides.add(ride);
-					availableRides.remove(ride);
-				}
-			}
-			
 			// Check rides in Progress
 			for (Ride ride: new ArrayList<Ride>(inProgressRides)) {
 				if(simDuration == ride.getFinishedAt()) {					
@@ -74,6 +59,35 @@ public class Simulation {
 					vehicle.setCurrentPos(ride.getEndPosition());
 					occupiedVehicles.remove(vehicle);
 					availableVehicles.add(vehicle);
+				}
+			}
+			
+			// Assign Available vehicles to Rides
+			for (Ride ride : new ArrayList<Ride>(availableRides)) {
+
+				for (Vehicle vehicle : new ArrayList<Vehicle>(availableVehicles)) {
+					
+					if(simDuration < ride.getStartTime()) {
+						if (ride.calculateTimeToStart(vehicle) <= ride.getStartTime()) {
+							ride.assignVehicle(vehicle, simDuration);
+							occupiedVehicles.add(vehicle);
+							availableVehicles.remove(vehicle);
+							inProgressRides.add(ride);
+							availableRides.remove(ride);
+							break;
+						}
+						else {
+							continue;
+						}
+					}
+					else {
+						ride.assignVehicle(vehicle, simDuration);
+						occupiedVehicles.add(vehicle);
+						availableVehicles.remove(vehicle);
+						inProgressRides.add(ride);
+						availableRides.remove(ride);
+						break;
+					}	
 				}
 			}
 			
@@ -126,4 +140,5 @@ public class Simulation {
 		
 		or.writeFile(outputArray);
 	}
+
 }

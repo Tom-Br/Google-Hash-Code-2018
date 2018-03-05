@@ -21,3 +21,13 @@ This problem is scored through the Google Hash Code Judge System. I hereby list 
 - e_high_bonus		= 2.271.953 points
 
 Total: 11.814.660 points
+
+## Version 2 - Take 'Start at' into account
+
+- a_example			= 10 points
+- b_should_be_easy  = 102.659 points
+- c_no_hurry        = 7.962.984 points
+- d_metropolis		= 1.408.586 points
+- e_high_bonus		= 2.254.623 points
+
+Total: 11.729.862 points

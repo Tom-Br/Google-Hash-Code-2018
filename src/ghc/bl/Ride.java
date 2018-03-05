@@ -21,19 +21,18 @@ public class Ride {
 		this.endTime   = endTime;
 	}
 	
-	private int calculateRideDuration() 
-	{
+	public int calculateTimeToStart(Vehicle vehicle){
+		Position vehiclePosition = vehicle.getCurrentPos();
+		return (Math.abs(vehiclePosition.getRow() - startPosition.getRow()) + Math.abs(vehiclePosition.getCol() - startPosition.getCol()));
+	}
+	
+	public int calculateRideDuration() {
 		return (Math.abs(startPosition.getRow() - endPosition.getRow()) + Math.abs(startPosition.getCol() - endPosition.getCol()));
 	}
 	
 	public int calculateTotalDuration(Vehicle vehicle) {
-		Position vehiclePosition;
-		int distanceToStart;
-		
-		vehiclePosition = vehicle.getCurrentPos();
-		distanceToStart = Math.abs(vehiclePosition.getRow() - startPosition.getRow()) + Math.abs(vehiclePosition.getCol() - startPosition.getCol());
-		
-		return distanceToStart + calculateRideDuration();
+		Position vehiclePosition = vehicle.getCurrentPos();
+		return (Math.abs(vehiclePosition.getRow() - endPosition.getRow()) + (Math.abs(vehiclePosition.getCol() - endPosition.getCol())));
 	}
 	
 
