@@ -6,7 +6,11 @@ public class RideCollection {
 	
 	private ArrayList<Ride> rideCollection;
 	
-	public RideCollection(){};
+	public RideCollection(){
+		this.rideCollection = new ArrayList<Ride>();
+	};
+	
+	public void addRide() {}
 	
 	public void Sort() {};
 	

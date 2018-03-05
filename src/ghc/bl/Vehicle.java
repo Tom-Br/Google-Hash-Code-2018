@@ -6,12 +6,14 @@ public class Vehicle {
 	
 	private int id;
 	private Position currentPos;
-	private boolean available;
 	
 	public Vehicle() {
 		this.id = ++idCounter;
 		this.currentPos = new Position(0, 0);
-		this.available = true;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public Position getCurrentPos() {
@@ -22,21 +24,10 @@ public class Vehicle {
 		this.currentPos = currentPos;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public boolean isAvailable() {
-		return available;
-	}
-
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
 
 	@Override
 	public String toString() {
-		return "Vehicle [id=" + id + ", currentPos=" + currentPos + "]";
+		return "Vehicle [id=" + id + ", currentPos=" + currentPos.toString() + "]";
 	}
 	
 	
