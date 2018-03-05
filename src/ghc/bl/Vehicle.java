@@ -8,7 +8,7 @@ public class Vehicle {
 	private Position currentPos;
 	
 	public Vehicle() {
-		this.id = ++idCounter;
+		this.id = idCounter++;
 		this.currentPos = new Position(0, 0);
 	}
 	

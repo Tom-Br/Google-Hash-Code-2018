@@ -1,7 +1,5 @@
 package ghc.main;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import ghc.bl.Map;
@@ -109,7 +107,7 @@ public class Simulation {
 		ArrayList<ArrayList<Integer>> outputArray = new ArrayList<ArrayList<Integer>>();		
 		OutputWriter or = new OutputWriter(fileName);
 		
-		for(int i = 1; i <= settings.getMaxVehicles(); i++) {
+		for(int i = 0; i < settings.getMaxVehicles(); i++) {
 			ArrayList<Ride> ridesPerVehicle = new ArrayList<Ride>();
 			ArrayList<Integer> outputLineArray = new ArrayList<Integer>();
 			// Retrieve Rides per Vehicle

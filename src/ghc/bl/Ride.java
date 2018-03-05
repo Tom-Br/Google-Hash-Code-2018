@@ -14,7 +14,7 @@ public class Ride {
 	private int finishedAt;
 	
 	public Ride(Position startPosition, Position endPosition, int startTime, int endTime ) {	
-		this.id = ++idCounter;
+		this.id = idCounter++;
 		this.startPosition = startPosition;
 		this.endPosition   = endPosition;
 		this.startTime = startTime;
