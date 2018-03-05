@@ -11,10 +11,10 @@ public class InputReader {
 	private String fileName;
 	
 	public InputReader(String fileName) {
-		this.fileName = fileName;
+		this.fileName = "input_files/" + fileName + ".in";
 	}
 	
-	public ArrayList<int[]> ReadFile() {
+	public ArrayList<int[]> readFile() {
 		FileReader fr;
 		BufferedReader br;
 		

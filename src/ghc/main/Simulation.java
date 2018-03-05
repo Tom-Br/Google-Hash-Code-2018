@@ -1,5 +1,7 @@
 package ghc.main;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import ghc.bl.Map;
@@ -8,9 +10,11 @@ import ghc.bl.Ride;
 import ghc.bl.SimulationSettings;
 import ghc.bl.Vehicle;
 import ghc.io.InputReader;
+import ghc.io.OutputWriter;
 
 public class Simulation {
 	
+	private String fileName;
 	private SimulationSettings settings;
 	private ArrayList<Vehicle> availableVehicles = new ArrayList<Vehicle>();
 	private ArrayList<Vehicle> occupiedVehicles = new ArrayList<Vehicle>();
@@ -18,13 +22,15 @@ public class Simulation {
 	private ArrayList<Ride> inProgressRides = new ArrayList<Ride>();
 	private ArrayList<Ride> finishedRides = new ArrayList<Ride>();
 	
-	public Simulation() {};
+	public Simulation(String fileName) {
+		this.fileName = fileName;
+	};
 
 	public void initialise() {
 		ArrayList<int[]> file;
-		InputReader ir = new InputReader("input_files/a_example.in");
+		InputReader ir = new InputReader(fileName);
 		
-		file = ir.ReadFile();
+		file = ir.readFile();
 		
 		for (int i = 0; i < file.size(); i++) {
 			int[] fileLine = file.get(i);
@@ -77,7 +83,7 @@ public class Simulation {
 		
 	}
 	
-	public void formatOutput() {
+	public void formatOutputConsole() {
 		System.out.println("Available Rides");
 		for(Ride ride : availableRides) {
 			System.out.println(ride.toString());
@@ -96,5 +102,30 @@ public class Simulation {
 			
 		}
 		System.out.println();
+	}
+	
+	public void formatOutputFile() {
+		
+		ArrayList<ArrayList<Integer>> outputArray = new ArrayList<ArrayList<Integer>>();		
+		OutputWriter or = new OutputWriter(fileName);
+		
+		for(int i = 1; i <= settings.getMaxVehicles(); i++) {
+			ArrayList<Ride> ridesPerVehicle = new ArrayList<Ride>();
+			ArrayList<Integer> outputLineArray = new ArrayList<Integer>();
+			// Retrieve Rides per Vehicle
+			for (Ride ride : finishedRides) {
+				if (ride.getVehicle().getId() == i) {
+					ridesPerVehicle.add(ride);
+				}
+			}
+			// Map Rides per Vehicle to Output
+			outputLineArray.add(ridesPerVehicle.size());
+			for (Ride ride: ridesPerVehicle) {
+				outputLineArray.add(ride.getId());
+			}
+			outputArray.add(outputLineArray);
+		}
+		
+		or.writeFile(outputArray);
 	}
 }
